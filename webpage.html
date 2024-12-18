@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fondo.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        label {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        select, input, textarea {
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #6c5ce7;
+            color: #fff;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #5a4cc0;
+            transform: scale(1.05);
+        }
+        .results {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .results img {
+            margin: 1rem;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .results p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        .results a {
+            text-decoration: none;
+            color: #6c5ce7;
+            font-weight: bold;
+        }
+        .results a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Find the Perfect Gift</h1>
+    </header>
+
+    <div class="container">
+        <form id="gift-form">
+            <label for="experience">Do you want an experience or a real gift?</label>
+            <select id="experience" name="experience">
+                <option value="real">Real Gift</option>
+                <option value="experience">Experience</option>
+            </select>
+
+            <label for="age">How old is the gift reciever?</label>
+            <input type="number" id="age" name="age" placeholder="Enter age...">
+
+            <label for="budget">What is your budget?</label>
+            <input type="number" id="budget" name="budget" placeholder="Enter budget ($)...">
+
+            <label for="relationship">What is your relationship to the gift reciever?</label>
+            <select id="relationship" name="relationship">
+                <option value="friend">Friend</option>
+                <option value="family">Family</option>
+                <option value="partner">Partner</option>
+                <option value="coworker">Coworker</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="hobbies">What are their hobbies or interests?</label>
+            <input type="text" id="hobbies" name="hobbies" placeholder="e.g., Sports, Reading, Cooking...">
+
+            <label for="custom-note">Anything else you'd like to add?</label>
+            <textarea id="custom-note" name="custom-note" rows="3" placeholder="Enter additional details..."></textarea>
+
+            <button type="submit">Find Gift Ideas</button>
+        </form>
+
+        <div id="results" class="results">
+            <p>Answer the questions to get gift suggestions!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('gift-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const results = document.getElementById('results');
+            const option1Img = 'electronic.jpg'; // Replace with your image URL
+            const option2Img = 'Ninja-CREAMi.jpg'; // Replace with your image URL
+            const option1Link = 'https://www.amazon.co.uk/Dual-purpose-Skipping-Electronic-Counting-Ropeless/dp/B0BDRK5QK4'; // Replace with your link
+            const option2Link = 'https://ninjakitchen.co.uk/product/ninja-creami-ice-cream-frozen-dessert-maker-nc300uk-zidNC300UK'; // Replace with your link
+
+            results.innerHTML = `
+                <p>Here are two gift suggestions:</p>
+                <div>
+                    <a href="${option1Link}" target="_blank">
+                        <img src="${option1Img}" alt="Gift Option 1">
+                        <p>Gift Option 1</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="${option2Link}" target="_blank">
+                        <img src="${option2Img}" alt="Gift Option 2">
+                        <p>Gift Option 2</p>
+                    </a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
